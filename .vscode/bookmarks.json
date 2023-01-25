@@ -4,7 +4,12 @@
 			"path": "src/components/Language.js",
 			"bookmarks": [
 				{
-					"line": 66,
+					"line": 58,
+					"column": 25,
+					"label": ""
+				},
+				{
+					"line": 72,
 					"column": 39,
 					"label": ""
 				}

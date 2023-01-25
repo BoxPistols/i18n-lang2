@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next"
 
 // Select
 import Box from "@mui/material/Box"
-import InputLabel from "@mui/material/InputLabel"
 import MenuItem from "@mui/material/MenuItem"
 import FormControl from "@mui/material/FormControl"
 import Select from "@mui/material/Select"
@@ -20,9 +19,9 @@ const Language = () => {
 
   const handleLangChange = (evt) => {
     const lang = evt.target.value
-    console.log(lang)
     setLanguage(lang)
     i18n.changeLanguage(lang)
+    console.log(lang)
   }
 
   return (
@@ -30,25 +29,25 @@ const Language = () => {
       <h1 className="head-1 design-font-en">i18n</h1>
       <form>
         <section className="section">
-          <Box sx={{ p: 4, display: "flex", flexDirection: "column", gap: 3 }}>
-            <div className="card">
-              <Box
-                sx={
-                  {
-                    // p: 1,
-                    // display: "flex",
+          {/* Select */}
+          <Box sx={{ p: 3, display: "flex", flexDirection: "column", gap: 3 }}>
+            {/* <div className="card"> */}
+            <Box>
+              <FormControl fullWidth>
+                <Box
+                  sx={{
+                    pl: 4,
+                    gap: 2,
+                    display: "flex",
+                    alignItems: "center",
                     // justifyContent: "center",
-                    // flexDirection: "column",
-                  }
-                }
-              >
-                <FormControl fullWidth>
-                  {/* <label id="select-label">Select Lang</label> */}
-                  <InputLabel id="select-label">Select Lang</InputLabel>
+                  }}
+                >
+                  <label id="select-label">Select Lang</label>
+                  {/* <InputLabel id="select-label">Select Lang</InputLabel> */}
                   <Select
                     labelId="select-label"
                     id="select"
-                    label="Select Lang"
                     onChange={handleLangChange}
                     value={language}
                     checked={language}
@@ -60,47 +59,54 @@ const Language = () => {
                       EN
                     </MenuItem>
                   </Select>
-                </FormControl>
-              </Box>
-            </div>
+                </Box>
+              </FormControl>
+            </Box>
           </Box>
           {/* </section> */}
           {/* Radio */}
           {/* <section className="section"> */}
-          <Box
-            sx={{
-              pl: 4,
-            }}
-          >
+          <Box>
             <FormControl>
-              <FormLabel id="group-label">Choose Lang</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby="group-label"
-                name="row-radio-buttons-group"
-                // sx={{ display: "flex", justifyContent: "center" }}
+              <Box
+                sx={{
+                  pl: 4,
+                  gap: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  // justifyContent: "center",
+                }}
               >
-                <FormControlLabel
-                  control={<Radio />}
-                  label="JA"
-                  id="ja"
-                  type="radio"
-                  name="lng"
-                  value="ja"
-                  checked={i18n.language === "ja"}
-                  onChange={handleLangChange}
-                />
-                <FormControlLabel
-                  label="EN"
-                  control={<Radio />}
-                  id="en"
-                  type="radio"
-                  name="lng"
-                  value="en"
-                  checked={i18n.language === "en"}
-                  onChange={handleLangChange}
-                />
-              </RadioGroup>
+                <FormLabel id="group-label" sx={{ fontSize: 18 }}>
+                  Choose Lang
+                </FormLabel>
+                <RadioGroup
+                  row
+                  aria-labelledby="group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel
+                    control={<Radio />}
+                    label="JA"
+                    id="ja"
+                    type="radio"
+                    name="lng"
+                    value="ja"
+                    checked={i18n.language === "ja"}
+                    onChange={handleLangChange}
+                  />
+                  <FormControlLabel
+                    label="EN"
+                    control={<Radio />}
+                    id="en"
+                    type="radio"
+                    name="lng"
+                    value="en"
+                    checked={i18n.language === "en"}
+                    onChange={handleLangChange}
+                  />
+                </RadioGroup>
+              </Box>
             </FormControl>
           </Box>
         </section>
